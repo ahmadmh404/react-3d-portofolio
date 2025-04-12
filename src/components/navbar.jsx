@@ -1,19 +1,38 @@
 import styled from "styled-components";
-import { Link as LinkR } from "react-router-dom";
+import { Bio } from "../data/constants";
 
-const NavbarContainer = styled.div`
+import { Link as LinkR } from "react-router-dom";
+import { MenuRounded } from "@mui/icons-material";
+import { useState } from "react";
+
+const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
+  width: 100%;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  positoin: sticky;
+  position: sticky;
   top: 0;
   z-index: 10;
   color: white;
 `;
 
+const NavbarContainer = styled.div`
+  width: 100%;
+  padding: 0 24px;
+  max-width: 1200px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 const NavbarLogo = styled(LinkR)`
+  width: 80%;
+  weight: 800;
+  display: flex;
+  align-items: center;
   padding: 0 10px;
   text-decoration: none;
   color: white;
@@ -61,8 +80,6 @@ const ButtonContiner = styled.div`
 `;
 
 const GithubButton = styled.a`
-  border: 1px solid ${({ theme }) => theme.primary};
-  color: ${({ theme }) => theme.primary};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,34 +87,88 @@ const GithubButton = styled.a`
   cursor: pointer;
   padding: 10px 20px;
   font-weight: 700;
-
-  transition: all 0.3s ease;
   text-decoration: none;
+`;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.text_primary};
+const MobileICon = styled.button`
+  color: ${({ theme }) => theme.text_primary};
+  background: ${({ theme }) => theme.bg};
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 20px;
+
+  @media screen and (min-width: 768px) {
+    display: none;
   }
 `;
 
+const MobileMenu = styled.ul`
+  width: 100%;
+  padding: 12px 40px 24px;
+  background: ${({ theme }) => theme.card_light + 99};
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 16px;
+  list-style: none;
+  position: absolute;
+  top: 80px;
+  right: 0;
+  transition: all 0.4s ease-in-out;
+  opacity: ${({ isOpen }) => (isOpen ? "100" : "0")};
+  z-index: ${({ isOpen }) => (isOpen ? "1000" : "-1000")};
+  transform: ${({ isOpen }) => {
+    return isOpen ? "translateY(0)" : "translateY(-1000px)";
+  }};
+`;
+
 export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <NavbarContainer>
-      <NavbarLogo to={"/"}>
-        <a>Logo</a>
-      </NavbarLogo>
+    <Nav>
+      <NavbarContainer>
+        <NavbarLogo to={"/"}>
+          <img src="/assets/github.png" width={40} alt="" />
+        </NavbarLogo>
 
-      <NavItems>
-        <NavLink href="#about">About</NavLink>
-        <NavLink href="#skills">Skills</NavLink>
-        <NavLink href="#experience">Experience</NavLink>
-        <NavLink href="#projects">Project</NavLink>
-        <NavLink href="#education">Education</NavLink>
-      </NavItems>
+        <MobileICon onClick={() => setIsOpen(!isOpen)}>
+          <MenuRounded style={{ color: "inherit" }} />
+        </MobileICon>
 
-      <ButtonContiner>
-        <GithubButton>Github</GithubButton>
-      </ButtonContiner>
-    </NavbarContainer>
+        <MobileMenu isOpen={isOpen}>
+          <NavLink href="#about">About</NavLink>
+          <NavLink href="#skills">Skills</NavLink>
+          <NavLink href="#experience">Experience</NavLink>
+          <NavLink href="#projects">Project</NavLink>
+          <NavLink href="#education">Education</NavLink>
+          <GithubButton
+            style={{ padding: "0px" }}
+            href={Bio.github}
+            target="_blank"
+          >
+            <img src="/assets/github.png" width={26} alt="" />
+          </GithubButton>
+        </MobileMenu>
+
+        <NavItems>
+          <NavLink href="#about">About</NavLink>
+          <NavLink href="#skills">Skills</NavLink>
+          <NavLink href="#experience">Experience</NavLink>
+          <NavLink href="#projects">Project</NavLink>
+          <NavLink href="#education">Education</NavLink>
+        </NavItems>
+
+        <ButtonContiner>
+          <GithubButton href={Bio.github} target="_blank">
+            <img src="/assets/github.png" width={26} alt="" />
+          </GithubButton>
+        </ButtonContiner>
+      </NavbarContainer>
+    </Nav>
   );
 };
