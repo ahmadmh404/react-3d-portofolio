@@ -1,5 +1,17 @@
+import styled, { ThemeProvider } from "styled-components";
+import { darkTheme } from "./utils/Themes";
+import { Navbar } from "./components/Navbar";
+import { BrowserRouter } from "react-router-dom";
+import "./index.css";
+
 function App() {
-  return <>Hello, React</>;
+  return (
+    <ThemeProvider theme={darkTheme}>
+      <BrowserRouter>
+        <Navbar />
+      </BrowserRouter>
+    </ThemeProvider>
+  );
 }
 
 export default App;
