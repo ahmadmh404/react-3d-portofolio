@@ -16,10 +16,10 @@ const Container = styled.div`
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
   color: ${({ theme }) => theme.text_primary};
-  with: 100%;
+  width: 100%;
   flex: 1;
   overflow-x: hidden;
-  positoin: relative;
+  position: relative;
 `;
 
 function App() {

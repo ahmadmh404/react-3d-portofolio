@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { Bio } from "../data/constants";
+import HeroBgAnimation from "./HeroBgAnimation";
 
 import TypewriterComponent from "typewriter-effect";
+import { Tilt } from "react-tilt";
 
 const HeroContainer = styled.div`
   display: flex;
@@ -44,26 +46,20 @@ const HerLeftInnerContainer = styled.div`
     margin-bottom: 30px;
     display: flex;
     flex-direction: column;
-    align-items: cneter;
+    align-items: center;
   }
 `;
 
 const HerRightInnerContainer = styled.div`
+  display: flex;
+  justify-content: end;
+  align-items: center;
   width: 100%;
   order: 2;
 
   @media screen and (max-width: 960px) {
+    justify-content: center;
     order: 1;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: cneter;
-    align-items: cneter;
-    margin-bottom: 80px;
-  }
-
-  @media screen and (max-width: 640px) {
-    margin-bottom: 30px;
   }
 `;
 
@@ -106,21 +102,93 @@ const Span = styled.span`
 
 const SubTitle = styled.div`
   color: ${({ theme }) => theme.text_primary + 95};
-  font-size: 26px;
+  font-size: 22px;
   line-height: 32px;
   margin-bottom: 42px;
 
   @media screen and (max-width: 960px) {
     text-align: center;
+    font-size: 16px;
+    line-height: 32px;
+    margin-bottom: 42px;
   }
 `;
 
-const ResumeButton = styled.div``;
+const ResumeButton = styled.a`
+  text-decoration: none;
+  color: white;
+  width: 95%;
+  max-width: 300px;
+  text-align: center;
+  padding: 13px 20px;
+
+  background: hasla(271, 100%, 50%, 1);
+  background: linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  background: --moz-linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  background: --webkit-linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+
+  box-shadow: -20px -20px 60px #1f2634, 20px 20px 60px #1f2634;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 20px;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: all 0.4s; ease-in-out
+  }
+`;
+
+const Img = styled.img`
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+
+  @media screen and (max-width: 640px) {
+    max-width: 300px;
+  }
+`;
+
+const Herobg = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  max-width: 1360px;
+
+  transform: translateX(-50%) translateY(-50%);
+  --webkit-transform: translateX(-50%) translateY(-50%);
+  --moz-transform: translateX(-50%) translateY(-50%);
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    padding: 0 8px;
+  }
+`;
 
 export const HeroSection = () => {
   return (
     <div id="about">
       <HeroContainer>
+        <Herobg>
+          <HeroBgAnimation />
+        </Herobg>
         <HerInnerContainr>
           <HerLeftInnerContainer>
             <Title>
@@ -143,9 +211,13 @@ export const HeroSection = () => {
 
             <SubTitle>{Bio.description}</SubTitle>
 
-            <ResumeButton></ResumeButton>
+            <ResumeButton href="#">Check resume</ResumeButton>
           </HerLeftInnerContainer>
-          <HerRightInnerContainer>Right</HerRightInnerContainer>
+          <HerRightInnerContainer>
+            <Tilt>
+              <Img src="/assets/HerImage.png" alt="hero_image" />
+            </Tilt>
+          </HerRightInnerContainer>
         </HerInnerContainr>
       </HeroContainer>
     </div>
