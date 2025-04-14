@@ -1,10 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { Bio } from "../data/constants";
-import HeroBgAnimation from "./HeroBgAnimation";
 
-import TypewriterComponent from "typewriter-effect";
+import HeroBgAnimation from "./HeroBgAnimation";
+import {
+  fadeAnimation,
+  headContentAnimation,
+  headTextAnimation,
+} from "../utils/motion";
+
 import { Tilt } from "react-tilt";
+import { motion } from "framer-motion";
+import TypewriterComponent from "typewriter-effect";
 
 const HeroContainer = styled.div`
   display: flex;
@@ -189,36 +196,44 @@ export const HeroSection = () => {
         <Herobg>
           <HeroBgAnimation />
         </Herobg>
-        <HerInnerContainr>
-          <HerLeftInnerContainer>
-            <Title>
-              Hi, I am <br />
-              {Bio.name}
-            </Title>
+        <motion.div {...fadeAnimation}>
+          <HerInnerContainr>
+            <HerLeftInnerContainer>
+              <motion.div {...{ ...headTextAnimation }}>
+                <Title>
+                  Hi, I am <br />
+                  {Bio.name}
+                </Title>
 
-            <TextLoop>
-              I am a
-              <Span>
-                <TypewriterComponent
-                  options={{
-                    strings: Bio.roles,
-                    autoStart: true,
-                    loop: true,
-                  }}
-                />
-              </Span>
-            </TextLoop>
+                <TextLoop>
+                  I am a
+                  <Span>
+                    <TypewriterComponent
+                      options={{
+                        strings: Bio.roles,
+                        autoStart: true,
+                        loop: true,
+                      }}
+                    />
+                  </Span>
+                </TextLoop>
+              </motion.div>
 
-            <SubTitle>{Bio.description}</SubTitle>
+              <motion.div {...headContentAnimation}>
+                <SubTitle>{Bio.description}</SubTitle>
+              </motion.div>
 
-            <ResumeButton href="#">Check resume</ResumeButton>
-          </HerLeftInnerContainer>
-          <HerRightInnerContainer>
-            <Tilt>
-              <Img src="/assets/HerImage.png" alt="hero_image" />
-            </Tilt>
-          </HerRightInnerContainer>
-        </HerInnerContainr>
+              <ResumeButton href="#">Check resume</ResumeButton>
+            </HerLeftInnerContainer>
+            <HerRightInnerContainer>
+              <motion.div {...headContentAnimation}>
+                <Tilt>
+                  <Img src="/assets/HerImage.png" alt="hero_image" />
+                </Tilt>
+              </motion.div>
+            </HerRightInnerContainer>
+          </HerInnerContainr>
+        </motion.div>
       </HeroContainer>
     </div>
   );
