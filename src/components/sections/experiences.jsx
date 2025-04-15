@@ -2,9 +2,10 @@ import React from "react";
 
 import { experiences } from "../../data/constants";
 import { VerticalTimeline } from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 
-import { motion } from "framer-motion";
 import { styled } from "styled-components";
+import { ExperienceCard } from "./experience-card";
 
 const Container = styled.div`
   display: flex;
@@ -34,7 +35,7 @@ const Wrapper = styled.div`
 const Title = styled.div`
   font-weight: 600;
   font-size: 52px;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.text_secondary};
   margin-top: 20px;
   text-align: center;
 
@@ -45,7 +46,7 @@ const Title = styled.div`
 `;
 
 const Desc = styled.div`
-  color: ${({ theme }) => theme.text_primary + 95};
+  color: ${({ theme }) => theme.text_secondary + 95};
   font-size: 22px;
   line-height: 32px;
   margin-bottom: 20px;
@@ -70,7 +71,7 @@ export const Experiences = () => {
 
         <VerticalTimeline>
           {experiences.map((experience, idx) => (
-            <motion.div key={idx}></motion.div>
+            <ExperienceCard experience={experience} key={idx} />
           ))}
         </VerticalTimeline>
       </Wrapper>

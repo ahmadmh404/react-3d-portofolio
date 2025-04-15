@@ -97,7 +97,7 @@ export const skills = [
     skills: [
       {
         name: "Next Js",
-        image: "/skills-svgs/next-js.png=",
+        image: "/skills-svgs/next-js.png",
       },
       {
         name: "Zod",
@@ -130,11 +130,27 @@ export const education = [
 
 export const experiences = [
   {
+    id: 2,
+    image: "/experience-images/university.png",
+    role: "Technical Student",
+    company: "Institute of Technical Education",
+    date: "2020 - Present",
+    desc: "Advanced programming courses, technical workshops & lab sessions, computer science fundamentals, team projects & collaboration",
+    skills: [
+      "Software Development",
+      "Web Technologies",
+      "Computer Science",
+      "Team Collaboration",
+    ],
+    company_logo: "/experience-images/graduation.png",
+  },
+  {
     id: 1,
+    image: "/experience-images/high-five.png",
     role: "Frontend Lead Developer",
     company: "Social Media Platform (Graduation Project)",
     date: "Sep 2023 - Present",
-    desc: "Leading the frontend development of a comprehensive social media platform as part of the graduation project. Spearheading the implementation of modern web technologies and best practices. Key responsibilities include:\n• Architecting the frontend using Next.js and TypeScript for optimal performance\n• Implementing responsive UI components using ShadcnUI and handling complex state management\n• Collaborating with backend team for API integration and real-time features\n• Optimizing application performance for handling large-scale data loads",
+    desc: "Frontend architecture with Next.js & TypeScript, UI components with ShadcnUI, API integration & real-time features, performance optimization",
     skills: [
       "Next.js",
       "TypeScript",
@@ -143,21 +159,7 @@ export const experiences = [
       "API Integration",
       "Performance Optimization",
     ],
-    company_logo: "/company-logos/graduate-project.png",
-  },
-  {
-    id: 2,
-    role: "Technical Student",
-    company: "Institute of Technical Education",
-    date: "2020 - Present",
-    desc: "Pursuing advanced technical education with focus on software development and web technologies. Notable achievements include:\n• Maintaining excellent academic performance in programming courses\n• Participating in practical lab sessions and technical workshops\n• Developing strong foundation in computer science fundamentals\n• Collaborating with peers on various technical projects",
-    skills: [
-      "Software Development",
-      "Web Technologies",
-      "Computer Science",
-      "Team Collaboration",
-    ],
-    company_logo: "/company-logos/ite-logo.png",
+    company_logo: "/experience-images/high-five.png",
   },
 ];
 
@@ -181,7 +183,9 @@ export const projects = [
     category: "web app",
     github: "https://github.com/rishavchanda/DecisionHub",
     webapp: "https://decisionhub.netlify.app/",
+    company_logo: "/skills-svgs/next-js.png",
   },
+
   {
     id: 9,
     title: "Trackify",
