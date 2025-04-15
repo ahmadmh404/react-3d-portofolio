@@ -1,0 +1,53 @@
+import React, { Suspense, useRef, useState } from "react";
+import { useFrame, Canvas } from "@react-three/fiber";
+import { Points, PointMaterial, Preload } from "@react-three/drei";
+import * as random from "maath/random/dist/maath-random.esm";
+import { styled } from "styled-components";
+
+const StyleStarsCanvas = styled.div`
+  width: 100%;
+  height: auto;
+  position: absolute;
+  inset: 0;
+`;
+
+const Stars = (props) => {
+  const ref = useRef();
+  const [sphere] = useState(() =>
+    random.inSphere(new Float32Array(5000), { radius: 1.2 })
+  );
+
+  console.log("sphere: ", sphere);
+
+  useFrame((state, delta) => {
+    ref.current.rotation.x -= delta / 10;
+    ref.current.rotation.y -= delta / 15;
+  });
+
+  return (
+    <group rotation={[0, 0, Math.PI / 4]}>
+      <Points positions={sphere} ref={ref} stride={3} frustumCulled {...props}>
+        <PointMaterial
+          transparent={true}
+          color="#f262c8"
+          size={0.003}
+          sizeAttenuation={true}
+          depthWrite={false}
+        />
+      </Points>
+    </group>
+  );
+};
+
+export const StarsCanvas = () => {
+  return (
+    <StyleStarsCanvas>
+      <Canvas camera={{ position: [0, 0, 1] }}>
+        <Suspense fallback={null}>
+          <Stars />
+        </Suspense>
+        <Preload all />
+      </Canvas>
+    </StyleStarsCanvas>
+  );
+};

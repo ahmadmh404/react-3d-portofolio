@@ -2,9 +2,10 @@ import styled, { ThemeProvider } from "styled-components";
 import { darkTheme } from "./utils/Themes";
 import { BrowserRouter } from "react-router-dom";
 import { Navbar } from "./components/navbar";
+import { Hero } from "./components/sections/hero";
 
 import "./index.css";
-import { HeroSection } from "./components/HeroSection.jsx";
+import Skills from "./components/sections/skills";
 
 const Container = styled.div`
   width: 100%;
@@ -29,7 +30,8 @@ function App() {
         <Container>
           <Navbar />
           <Body>
-            <HeroSection />
+            <Hero />
+            <Skills />
           </Body>
         </Container>
       </BrowserRouter>
