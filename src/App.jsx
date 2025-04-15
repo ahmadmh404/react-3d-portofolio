@@ -6,6 +6,7 @@ import { Hero } from "./components/sections/hero";
 
 import "./index.css";
 import Skills from "./components/sections/skills";
+import { Experiences } from "./components/sections/experiences";
 
 const Container = styled.div`
   width: 100%;
@@ -32,6 +33,7 @@ function App() {
           <Body>
             <Hero />
             <Skills />
+            <Experiences />
           </Body>
         </Container>
       </BrowserRouter>

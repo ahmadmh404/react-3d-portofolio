@@ -157,7 +157,7 @@ export const Navbar = () => {
         <MobileMenu isOpen={isOpen}>
           <NavLink href="#about">About</NavLink>
           <NavLink href="#skills">Skills</NavLink>
-          <NavLink href="#experience">Experience</NavLink>
+          <NavLink href="#experiences">Experience</NavLink>
           <NavLink href="#projects">Project</NavLink>
           <NavLink href="#education">Education</NavLink>
           <GithubButton

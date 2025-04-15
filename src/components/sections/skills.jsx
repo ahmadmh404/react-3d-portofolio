@@ -10,7 +10,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   postion: relative;
-  padding: 0 20px;
+  padding: 50px 20px;
   z-index: 1;
 `;
 
@@ -140,8 +140,9 @@ const Skills = () => {
         <Wrapper>
           <Title>Skills</Title>
           <Desc>
-            Here are some of my skills on which I have been working on for the
-            last 3 years.
+            Proficient in modern web technologies with a focus on frontend
+            development. Experienced in building responsive and performant
+            applications using Next.js and TypeScript.
           </Desc>
 
           <SkillsContainer>
