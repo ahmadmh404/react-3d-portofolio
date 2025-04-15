@@ -70,6 +70,7 @@ const SkillsContainer = styled.div`
 `;
 
 const Skill = styled.div`
+  width: 100%;
   max-width: 500px;
   background-color: rgba(17, 25, 40, 0.83);
   border: 1px solid rgba(255, 255, 255, 0.125);
@@ -114,6 +115,11 @@ const SkillItem = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14p;
+    padding: 8px 12px;
+  }
 `;
 
 const SkillImage = styled.img`
