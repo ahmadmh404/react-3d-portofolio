@@ -120,6 +120,11 @@ const SkillItem = styled.div`
     font-size: 14p;
     padding: 8px 12px;
   }
+
+  @media screen and (max-width: 768px) {
+    font-size: 14p;
+    padding: 6px 12px;
+  }
 `;
 
 const SkillImage = styled.img`
