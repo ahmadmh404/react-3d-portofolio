@@ -24,6 +24,7 @@ const Body = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 8px;
 `;
 
 const School = styled.div`

@@ -132,7 +132,7 @@ const SkillImage = styled.img`
   fill: ${({ theme }) => theme.text_primary};
 `;
 
-const Skills = () => {
+export const Skills = () => {
   return (
     <div id="skills">
       <Container>
@@ -166,5 +166,3 @@ const Skills = () => {
     </div>
   );
 };
-
-export default Skills;

@@ -1,13 +1,15 @@
-import styled, { ThemeProvider } from "styled-components";
-import { darkTheme } from "./utils/Themes";
 import { BrowserRouter } from "react-router-dom";
 import { Navbar } from "./components/navbar";
 import { Hero } from "./components/sections/hero";
-
-import "./index.css";
-import Skills from "./components/sections/skills";
+import { Skills } from "./components/sections/skills";
 import { Experiences } from "./components/sections/experiences";
 import { Education } from "./components/sections/education";
+import { StarsCanvas } from "./components/canvas/stars";
+
+import styled, { ThemeProvider } from "styled-components";
+import { darkTheme } from "./utils/Themes";
+import "./index.css";
+import { Projects } from "./components/sections/projects";
 
 const Container = styled.div`
   width: 100%;
@@ -43,12 +45,19 @@ function App() {
         <Container>
           <Navbar />
           <Body>
-            <Hero />
-            <Wrapper>
-              <Skills />
-              <Experiences />
-            </Wrapper>
-            <Education />
+            <StarsCanvas />
+            <div>
+              <Hero />
+              <StarsCanvas />
+              <Wrapper>
+                <Skills />
+                <Experiences />
+              </Wrapper>
+              <Projects />
+              <Wrapper>
+                <Education />
+              </Wrapper>
+            </div>
           </Body>
         </Container>
       </BrowserRouter>
