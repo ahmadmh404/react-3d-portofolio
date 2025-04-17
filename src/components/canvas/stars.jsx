@@ -1,15 +1,14 @@
-import React, { Suspense, useRef, useState } from "react";
-import { useFrame, Canvas } from "@react-three/fiber";
+import React, { useRef, useState, Suspense } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
-import { styled } from "styled-components";
+import styled from "styled-components";
 
-const StyleStarsCanvas = styled.div`
+const StyledCanvasWrapper = styled.div`
+  width: 100%;
+  height: auto;
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
 `;
 
 const Stars = (props) => {
@@ -19,10 +18,8 @@ const Stars = (props) => {
   );
 
   useFrame((state, delta) => {
-    if (ref.current) {
-      ref.current.rotation.x -= delta / 10;
-      ref.current.rotation.y -= delta / 15;
-    }
+    ref.current.rotation.x -= delta / 10;
+    ref.current.rotation.y -= delta / 15;
   });
 
   return (
@@ -31,7 +28,7 @@ const Stars = (props) => {
         <PointMaterial
           transparent
           color="#f272c8"
-          size={0.003}
+          size={0.002}
           sizeAttenuation={true}
           depthWrite={false}
         />
@@ -40,15 +37,15 @@ const Stars = (props) => {
   );
 };
 
-export const StarsCanvas = () => {
+export const StyledStarsCanvas = () => {
   return (
-    <StyleStarsCanvas>
-      <Canvas camera={{ position: [0, 0, 1] }} style={{ height: "100vh" }}>
+    <StyledCanvasWrapper>
+      <Canvas camera={{ position: [0, 0, 1] }}>
         <Suspense fallback={null}>
           <Stars />
         </Suspense>
         <Preload all />
       </Canvas>
-    </StyleStarsCanvas>
+    </StyledCanvasWrapper>
   );
 };

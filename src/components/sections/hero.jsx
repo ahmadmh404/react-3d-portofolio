@@ -12,7 +12,7 @@ import {
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 import TypewriterComponent from "typewriter-effect";
-import { StarsCanvas } from "../canvas/stars";
+import { StyledStarsCanvas } from "../canvas/stars";
 
 const HeroContainer = styled.div`
   display: flex;
@@ -198,7 +198,7 @@ export const Hero = () => {
     <div id="about">
       <HeroContainer>
         <Herobg>
-          <StarsCanvas />
+          <StyledStarsCanvas />
           <HeroBgAnimation />
         </Herobg>
 

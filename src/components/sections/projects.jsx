@@ -97,7 +97,13 @@ const Divider = styled.div`
   background: ${({ theme }) => theme.primary};
 `;
 
-const CardsContainer = styled.div``;
+const CardsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+`;
 
 export const Projects = () => {
   const [toggle, setToggle] = useState("ALL");

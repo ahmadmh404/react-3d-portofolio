@@ -65,6 +65,10 @@ export const skills = [
         name: "Prima ORM",
         image: "/skills-svgs/prisma.png",
       },
+      {
+        name: "Strapi CMS",
+        image: "/skills-svgs/strapi.png",
+      },
     ],
   },
   {
