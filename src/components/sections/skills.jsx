@@ -60,7 +60,6 @@ const SkillsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
-  align-items: center;
   gap: 50px;
   margin-top: 20px;
 

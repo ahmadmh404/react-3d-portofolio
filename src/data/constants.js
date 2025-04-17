@@ -109,22 +109,22 @@ export const skills = [
 
 export const education = [
   {
-    id: 0,
-    img: "/education-logos/ite-logo.png",
-    school: "Institute of ICTE, Tartous, Syria",
-    date: "2020 - 2024",
-    grade: "3.2 GPA",
-    desc: "Currently completing my final year in Information Technology, specializing in software development. My coursework includes advanced web development, database management, and software engineering principles. Notable achievements include leading the development of a social media platform as my graduation project, where I specialized in frontend development using Next.js and TypeScript.",
-    degree: "Higher Nitec in Information Technology",
-  },
-  {
     id: 1,
-    img: "/education-logos/secondary-school.png",
+    img: "/education-images/high-school.jpg",
     school: "Zaki Al-Arsozi Secondary School",
     date: "2017 - 2020",
     grade: "82%",
     desc: "Completed secondary education with a focus on mathematics and computing subjects. Developed a strong foundation in logical thinking and problem-solving skills.",
     degree: "Secondary School Certificate",
+  },
+  {
+    id: 2,
+    img: "/education-images/university.png",
+    school: "Institute of ICTE, Tartous, Syria",
+    date: "2020 - Present",
+    grade: "3.2 GPA",
+    desc: "Currently completing my final year in Information Technology, specializing in software development. My coursework includes advanced web development, database management, and software engineering principles. Notable achievements include leading the development of a social media platform as my graduation project, where I specialized in frontend development using Next.js and TypeScript.",
+    degree: "Higher Nitec in Information Technology",
   },
 ];
 

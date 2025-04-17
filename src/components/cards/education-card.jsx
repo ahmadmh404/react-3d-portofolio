@@ -24,7 +24,6 @@ const Body = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
 `;
 
 const School = styled.div`
@@ -91,7 +90,7 @@ export const EducationCard = ({ education }) => {
         <img
           width="100%"
           height="100%"
-          src={education.company_logo}
+          src={education.img}
           style={{
             borderRadius: "50%",
             objectFit: "cover",
@@ -117,7 +116,7 @@ export const EducationCard = ({ education }) => {
     >
       <Top>
         <Image
-          src={education?.image}
+          src={education?.img}
           width={40}
           height={40}
           style={{ borderRadius: "5px", objectFit: "cover" }}

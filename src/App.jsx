@@ -7,6 +7,7 @@ import { Hero } from "./components/sections/hero";
 import "./index.css";
 import Skills from "./components/sections/skills";
 import { Experiences } from "./components/sections/experiences";
+import { Education } from "./components/sections/education";
 
 const Container = styled.div`
   width: 100%;
@@ -24,6 +25,17 @@ const Body = styled.div`
   position: relative;
 `;
 
+const Wrapper = styled.div`
+  width: 100%;
+  background: linear-gradient(
+    30.37deg,
+    rgba(204, 0, 137, 0.15) 0%,
+    rgba(172, 93, 166, 0) 100%
+  );
+
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
+`;
+
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
@@ -32,8 +44,11 @@ function App() {
           <Navbar />
           <Body>
             <Hero />
-            <Skills />
-            <Experiences />
+            <Wrapper>
+              <Skills />
+              <Experiences />
+            </Wrapper>
+            <Education />
           </Body>
         </Container>
       </BrowserRouter>

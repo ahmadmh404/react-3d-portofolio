@@ -1,8 +1,8 @@
 import React from "react";
 
-import { experiences } from "../../data/constants";
+import { education } from "../../data/constants";
 import { VerticalTimeline } from "react-vertical-timeline-component";
-import { ExperienceCard } from "../cards/experience-card";
+import { EducationCard } from "../cards/education-card";
 
 import "react-vertical-timeline-component/style.min.css";
 import { styled } from "styled-components";
@@ -58,20 +58,19 @@ const Desc = styled.div`
   }
 `;
 
-export const Experiences = () => {
+export const Education = () => {
   return (
     <Container id="experiences">
       <Wrapper>
-        <Title>Experiences</Title>
+        <Title>Education</Title>
         <Desc>
-          Currently leading frontend development for a social media platform,
-          where I combine academic knowledge with hands-on project experience to
-          deliver modern web solutions.
+          Currently completing my final year in Information Technology at ICTE
+          Tartous, focusing on software development and web technologies.
         </Desc>
 
         <VerticalTimeline>
-          {experiences.map((experience, idx) => (
-            <ExperienceCard experience={experience} key={idx} />
+          {education.map((edu, idx) => (
+            <EducationCard education={edu} key={idx} />
           ))}
         </VerticalTimeline>
       </Wrapper>
